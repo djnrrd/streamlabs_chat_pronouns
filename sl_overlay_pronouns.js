@@ -84,6 +84,8 @@ document.addEventListener('onEventReceived', function(obj) {
     const messageId = obj['detail']['messageId'];
     const messageDiv = document.querySelector(`[data-id="${messageId}"]`);
     const pronounSpan = messageDiv.querySelector(".pronouns");
-    pronounSpan.textContent = `(${user_pronouns[user_login]['pronouns']})`;
+    if (user_pronouns[user_login]['pronouns'] != '') {
+      pronounSpan.textContent = `(${user_pronouns[user_login]['pronouns']})`;
+    }
 	}
 });
