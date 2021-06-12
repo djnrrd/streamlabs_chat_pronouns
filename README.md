@@ -32,6 +32,8 @@ Many people use Streamlabs chat overlays in both OBS Studio and Streamlabs OBS, 
 
 - **The ends of display names and pronouns are replaced with ellipsis on narrow browsers** - This is a default behaviour of Streamlabs chat overlay. Either make your obs-browser instance wider to accommodate this, or look at using custom CSS. I'm looking to create custom CSS and add this as a suggested extra to this repository.
 
+![Screenshot of ellipsis issue](https://github.com/djnrrd/streamlabs_chat_pronouns/blob/main/res/username_compression.png?raw=true)
+
 ## Customisation and Pull Requests
 
 If you wish to do further customations to this code, always respect the 5 minute cache period. Alejo provides this service for free and we should not overload his server.  Please consider donating Alejo some cash via his [Patreon](https://patreon.com/alejo_47) or [Paypal](https://paypal.me/alejo47)
