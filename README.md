@@ -30,7 +30,7 @@ Many people use Streamlabs chat overlays in both OBS Studio and Streamlabs OBS, 
 
 ![Screenshot of empty bracket issue](https://github.com/djnrrd/streamlabs_chat_pronouns/blob/main/res/unregistered_brackets.png?raw=true)
 
-- **The ends of display names and pronouns are replaced with ellipsis on narrow browsers** - This is a default behaviour of Streamlabs chat overlay. Either make your obs-browser instance wider to accommodate this, or look at using custom CSS. I'm looking to create custom CSS and add this as a suggested extra to this repository.
+- **The ends of display names and pronouns are replaced with ellipsis on narrow browsers** - This is a default behaviour of Streamlabs chat overlay. Either make your obs-browser instance wider to accommodate this, or look at using custom CSS. The file [sl_overlay_pronouns.css](https://github.com/djnrrd/streamlabs_chat_pronouns/blob/main/sl_overlay_pronouns.css) is a suggestion, splitting display names and messages onto different lines
 
 ![Screenshot of ellipsis issue](https://github.com/djnrrd/streamlabs_chat_pronouns/blob/main/res/username_compression.png?raw=true)
 
