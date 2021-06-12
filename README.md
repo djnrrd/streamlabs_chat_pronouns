@@ -9,3 +9,5 @@ Many people use Streamlabs chat overlays in both OBS Studio and Streamlabs OBS, 
 
 ## Installation
 
+- If you haven't already, sign up for [Streamlabs](https://streamlabs.com/), you do not need to use Streamlabs OBS to sign up and use their services.
+- Select "All Widgets" And then find the Chatbox widget
