@@ -45,6 +45,12 @@ function add_user_pronoun_cache(user_login) {
 }
 
 
+function update_user_pronoun_cache(user_login) {
+  user_pronouns[user_login]['cache_time'] = Date.now();
+  console.log(`Refreshing cache for  ${user_login}`)
+}
+
+
 function check_cache_time(user_login) {
   if ( Date.now() <= user_pronouns[user_login]['cache_time'] + 300000 ) {
     return true;
@@ -77,7 +83,7 @@ document.addEventListener('onEventReceived', function(obj) {
     // Check if the cache has expired (5 mins) and refresh their entry if they have
     if (!(check_cache_time(user_login))) {
       console.log(`${user_login} cache has expired`);
-			user_pronouns[user_login] = add_user_pronoun_cache(user_login);
+			update_user_pronoun_cache(user_login);
       get_user_pronouns(user_login);
     };
     // Find the messageId to write the pronouns to
