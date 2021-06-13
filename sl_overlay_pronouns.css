@@ -68,8 +68,8 @@ body {
 }
 
 #log .meta {
-    width: 35%;
-    text-align: right;
+    width: 100%;
+    text-align: left;
     padding-right: 0.5em;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -78,7 +78,8 @@ body {
 
 #log .message {
     word-wrap: break-word;
-    width: 65%;
+    width: 95%;
+    margin-left: 1em;
 }
 
 .badge {
