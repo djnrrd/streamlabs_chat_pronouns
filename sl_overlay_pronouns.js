@@ -17,7 +17,7 @@ async function build_pronoun_lookup() {
 }
 
 
-async function get_user_pronouns(user_login) {
+async function get_user_pronouns(user_login, messageId) {
   const data = await get(`users/${user_login}`);
   if ( Array.isArray(data) ) {
     if( data.length == 1) {
@@ -33,6 +33,7 @@ async function get_user_pronouns(user_login) {
   } else {
     user_pronouns[user_login]['pronouns'] = '';
   }
+  write_pronouns(messageId, user_login);
 }
 
 
@@ -60,6 +61,15 @@ function check_cache_time(user_login) {
 }
 
 
+function write_pronouns(messageId, user_login) {
+    const messageDiv = document.querySelector(`[data-id="${messageId}"]`);
+    const pronounSpan = messageDiv.querySelector(".pronouns");
+    if (user_pronouns[user_login]['pronouns'] != '') {
+      pronounSpan.textContent = `(${user_pronouns[user_login]['pronouns']})`;
+    }
+}
+
+
 // Please use event listeners to run functions.
 document.addEventListener('onLoad', function(obj) {
 	// obj will be empty for chat widget
@@ -74,24 +84,20 @@ document.addEventListener('onEventReceived', function(obj) {
   if (obj['detail']['command'] === 'PRIVMSG') {
 		//Get the user's login from the message
     const user_login = obj['detail']['from'];
+		// Find the messageId to write the pronouns to
+    const messageId = obj['detail']['messageId'];
     // Check if they do not exist in the local cache and get them if not
     if (!(user_login in user_pronouns)) {
       console.log(`${user_login} is not in pronoun cache`);
       user_pronouns[user_login] = add_user_pronoun_cache(user_login);
-      get_user_pronouns(user_login);
+      get_user_pronouns(user_login, messageId);
     };
     // Check if the cache has expired (5 mins) and refresh their entry if they have
     if (!(check_cache_time(user_login))) {
       console.log(`${user_login} cache has expired`);
 			update_user_pronoun_cache(user_login);
-      get_user_pronouns(user_login);
+      get_user_pronouns(user_login, messageId);
     };
-    // Find the messageId to write the pronouns to
-    const messageId = obj['detail']['messageId'];
-    const messageDiv = document.querySelector(`[data-id="${messageId}"]`);
-    const pronounSpan = messageDiv.querySelector(".pronouns");
-    if (user_pronouns[user_login]['pronouns'] != '') {
-      pronounSpan.textContent = `(${user_pronouns[user_login]['pronouns']})`;
-    }
+		write_pronouns(messageId, user_login);
 	}
 });
