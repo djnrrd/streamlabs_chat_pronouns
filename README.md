@@ -1,6 +1,8 @@
 # streamlabs_chat_pronouns
 Custom Javscript for Streamlabs chat overlays that adds pronouns from [alejo.io](https://pronouns.alejo.io/)
 
+![Screenshot example](https://github.com/djnrrd/streamlabs_chat_pronouns/blob/main/res/example_pronouns.png?raw=true)
+
 ## Background
 
 Many people are using the fantastic Twitch chat pronouns service and plugins from [alejo.io](https://pronouns.alejo.io/), but the embedded browser in OBS studio isn't able to load the plugin to have in-video chat render people's pronouns.
@@ -21,10 +23,6 @@ Many people use Streamlabs chat overlays in both OBS Studio and Streamlabs OBS, 
 ![Screenshot of custom HTML/CSS option](https://github.com/djnrrd/streamlabs_chat_pronouns/blob/main/res/Chat_Box_Streamlabs.png?raw=true)
 
 ## Known Issues
-
-- **Pronouns are not displayed on first chat** - To make sure calls to the pronouns service do not lock the obs-browser plugin, they are made asynchronously, updating the cache of pronouns after the first message is sent.  All susbequent messages should render the user's pronouns. 
- 
-![Screenshot of first message issue](https://github.com/djnrrd/streamlabs_chat_pronouns/blob/main/res/first_load_issue.png?raw=true)
 
 - **The ends of display names and pronouns are replaced with ellipsis on narrow browsers** - This is a default behaviour of Streamlabs chat overlay. Either make your obs-browser instance wider to accommodate this, or look at using custom CSS. The file [sl_overlay_pronouns.css](https://github.com/djnrrd/streamlabs_chat_pronouns/blob/main/sl_overlay_pronouns.css) is a suggestion, splitting display names and messages onto different lines
 
