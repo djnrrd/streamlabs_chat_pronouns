@@ -62,6 +62,7 @@ async function get_user_pronouns(user_login, messageId) {
     } else {
         user_pronouns[user_login]['pronouns'] = '';
     };
+    write_pronouns(messageId, user_login)
 }
 
 
